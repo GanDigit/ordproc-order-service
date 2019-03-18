@@ -23,14 +23,14 @@ public class OrderController {
         return orderService.getOrderById(id);
     }
 
-    @DeleteMapping("/orders/{id}")
+    @RequestMapping(value = "/orders/{id}", method = RequestMethod.DELETE)
     private void deleteOrder(@PathVariable("id") int id) {
         orderService.delete(id);
     }
 
-    @PostMapping("/orders")
-    private int saveOrder(@RequestBody OrderHeader orderHeader) {
-        orderService.saveOrUpdate(orderHeader);
-        return orderHeader.getId();
+    @RequestMapping(value = "/orders", method = RequestMethod.PUT)
+    private int saveOrder(@RequestBody OrderHeader order) {
+        orderService.saveOrUpdate(order);
+        return order.getId();
     }
 }
