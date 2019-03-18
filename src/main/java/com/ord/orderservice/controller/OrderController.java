@@ -15,6 +15,7 @@ public class OrderController {
 
     @GetMapping("/orders")
     private List<OrderHeader> getAllOrders() {
+        System.out.println("OrderController getAllOrders ....." );
         return orderService.getAllOrders();
     }
 
