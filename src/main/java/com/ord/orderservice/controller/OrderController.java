@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin
 @RestController
 public class OrderController {
 
@@ -30,8 +31,7 @@ public class OrderController {
     }
 
     @RequestMapping(value = "/orders", method = RequestMethod.PUT)
-    private int saveOrder(@RequestBody OrderHeader order) {
-        orderService.saveOrUpdate(order);
-        return order.getId();
+    private OrderHeader saveOrder(@RequestBody OrderHeader order) {
+        return orderService.saveOrUpdate(order);
     }
 }
