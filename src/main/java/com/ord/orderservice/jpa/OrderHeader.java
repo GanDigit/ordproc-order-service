@@ -9,7 +9,7 @@ public class OrderHeader {
     @Id
     @GeneratedValue
     private int id;
-    private String referenceText;
+    private String description;
     private String userName;
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy="orderHeaderId", cascade = CascadeType.ALL)
@@ -19,10 +19,10 @@ public class OrderHeader {
         super();
     }
 
-    public OrderHeader(int id, String referenceText, String userName, List<OrderItem> orderItems) {
+    public OrderHeader(int id, String description, String userName, List<OrderItem> orderItems) {
         super();
         this.id = id;
-        this.referenceText = referenceText;
+        this.description = description;
         this.userName = userName;
         this.orderItems = orderItems;
     }
@@ -33,14 +33,6 @@ public class OrderHeader {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public String getReferenceText() {
-        return referenceText;
-    }
-
-    public void setReferenceText(String referenceText) {
-        this.referenceText = referenceText;
     }
 
     public String getUserName() {
@@ -57,5 +49,13 @@ public class OrderHeader {
 
     public void setOrderItems(List<OrderItem> orderItems) {
         this.orderItems = orderItems;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

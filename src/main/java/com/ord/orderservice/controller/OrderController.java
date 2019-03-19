@@ -32,6 +32,8 @@ public class OrderController {
 
     @RequestMapping(value = "/orders", method = RequestMethod.PUT)
     private OrderHeader saveOrder(@RequestBody OrderHeader order) {
+        System.out.println("Save order --->" + order);
         return orderService.saveOrUpdate(order);
     }
+
 }
