@@ -1,23 +1,23 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: <PROJECT>-catalog-service
+  name: <PROJECT>-order-service
   namespace: <PROJECT>
   labels:
-    app: <PROJECT>-catalog-service
+    app: <PROJECT>-order-service
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: <PROJECT>-catalog-service
+      app: <PROJECT>-order-service
   template:
     metadata:
       labels:
-        app: <PROJECT>-catalog-service
+        app: <PROJECT>-order-service
     spec:
       containers:
-        - image: <CONTAINER>
-          name: <PROJECT>-catalog-service
+        - image: <DOCKER_IMAGE>
+          name: <PROJECT>-order-service
           imagePullPolicy: Always
           ports:
             - containerPort: 80
